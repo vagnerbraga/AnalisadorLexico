@@ -48,7 +48,8 @@ public enum Simbolo {
 	FOR("FOR"),
 	TO("TO"),
 	CASE("CASE"),
-	ERROR("Caracter não identificado");
+	COMENTARIO("Comentario"),
+	ERROR("Caracter não identificado"); 
 	
 	private String label;
 

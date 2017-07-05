@@ -61,6 +61,10 @@ public class IdentificaToken {
 		if(str.trim().equals(Simbolo.FECHA_PARENTESE.getLabel()))
 			return Simbolo.FECHA_PARENTESE;
 		
+		if(str.matches("^[(*].*.[*)]$"))
+			return Simbolo.COMENTARIO;
+		
+		
 		//trata o valor inteiro
 		if(str.matches("\\d{1,5}")){
 			if (Math.abs(Integer.parseInt(str)) <= 32767)

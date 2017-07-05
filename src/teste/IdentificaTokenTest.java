@@ -315,7 +315,13 @@ public class IdentificaTokenTest {
 		assertEquals(msgCod + 45, 45, this.id.identifica("CASE").ordinal());
 	}
 	
-	
+	@Test
+	public void testeComentario(){
+		assertEquals(msg+ Simbolo.COMENTARIO, Simbolo.COMENTARIO, this.id.identifica("(*sfsdf*)"));
+		assertEquals(msg+ Simbolo.COMENTARIO, Simbolo.COMENTARIO, this.id.identifica("(****)"));
+		
+		assertEquals(msgCod + 46, 46, this.id.identifica("(**)").ordinal());
+	}
 	
 	
 }

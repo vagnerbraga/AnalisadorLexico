@@ -4,61 +4,61 @@ public class IdentificaToken {
 
 	public Simbolo identifica(String str){
 		
-		if(str.trim().equals(Simbolo.VAZIO.getLabel()))
+		if(str.trim().equalsIgnoreCase(Simbolo.VAZIO.getLabel()))
 			return Simbolo.VAZIO;
 		
-		if(str.trim().equals(Simbolo.$.getLabel()))
+		if(str.trim().equalsIgnoreCase(Simbolo.$.getLabel()))
 			return Simbolo.$;
 		
-		if(str.trim().equals(Simbolo.OPERADO_SOMA.getLabel()))
+		if(str.trim().equalsIgnoreCase(Simbolo.OPERADO_SOMA.getLabel()))
 			return Simbolo.OPERADO_SOMA;
 		
-		if(str.trim().equals(Simbolo.OPERADO_SUBTRACAO.getLabel()))
+		if(str.trim().equalsIgnoreCase(Simbolo.OPERADO_SUBTRACAO.getLabel()))
 			return Simbolo.OPERADO_SUBTRACAO;
 		
-		if(str.trim().equals(Simbolo.OPERADO_MULTIPLICACAO.getLabel()))
+		if(str.trim().equalsIgnoreCase(Simbolo.OPERADO_MULTIPLICACAO.getLabel()))
 			return Simbolo.OPERADO_MULTIPLICACAO;
 		 
-		if(str.trim().equals(Simbolo.OPERADO_DIVISAO.getLabel()))
+		if(str.trim().equalsIgnoreCase(Simbolo.OPERADO_DIVISAO.getLabel()))
 			return Simbolo.OPERADO_DIVISAO;
 		
-		if(str.trim().equals(Simbolo.OPERADO_IGUALDADE.getLabel()))
+		if(str.trim().equalsIgnoreCase(Simbolo.OPERADO_IGUALDADE.getLabel()))
 			return Simbolo.OPERADO_IGUALDADE;
 		
-		if(str.trim().equals(Simbolo.MAIOR_QUE.getLabel()))
+		if(str.trim().equalsIgnoreCase(Simbolo.MAIOR_QUE.getLabel()))
 			return Simbolo.MAIOR_QUE;
 		
-		if(str.trim().equals(Simbolo.MAIOR_IGUAL.getLabel()))
+		if(str.trim().equalsIgnoreCase(Simbolo.MAIOR_IGUAL.getLabel()))
 			return Simbolo.MAIOR_IGUAL;
 		
-		if(str.trim().equals(Simbolo.MENOR_QUE.getLabel()))
+		if(str.trim().equalsIgnoreCase(Simbolo.MENOR_QUE.getLabel()))
 			return Simbolo.MENOR_QUE;
 		
-		if(str.trim().equals(Simbolo.MENOR_IGUAL.getLabel()))
+		if(str.trim().equalsIgnoreCase(Simbolo.MENOR_IGUAL.getLabel()))
 			return Simbolo.MENOR_IGUAL;
 		
-		if(str.trim().equals(Simbolo.DIFERENTE.getLabel()))
+		if(str.trim().equalsIgnoreCase(Simbolo.DIFERENTE.getLabel()))
 			return Simbolo.DIFERENTE;
 		
-		if(str.trim().equals(Simbolo.ATRIBUICAO.getLabel()))
+		if(str.trim().equalsIgnoreCase(Simbolo.ATRIBUICAO.getLabel()))
 			return Simbolo.ATRIBUICAO;
 		
-		if(str.trim().equals(Simbolo.DOIS_PONTOS.getLabel()))
+		if(str.trim().equalsIgnoreCase(Simbolo.DOIS_PONTOS.getLabel()))
 			return Simbolo.DOIS_PONTOS;
 		
-		if(str.trim().equals(Simbolo.PONTO_VIRGULA.getLabel()))
+		if(str.trim().equalsIgnoreCase(Simbolo.PONTO_VIRGULA.getLabel()))
 			return Simbolo.PONTO_VIRGULA;
 		
-		if(str.trim().equals(Simbolo.VIRGULA.getLabel()))
+		if(str.trim().equalsIgnoreCase(Simbolo.VIRGULA.getLabel()))
 			return Simbolo.VIRGULA;
 		
-		if(str.trim().equals(Simbolo.PONTO.getLabel()))
+		if(str.trim().equalsIgnoreCase(Simbolo.PONTO.getLabel()))
 			return Simbolo.PONTO;
 		
-		if(str.trim().equals(Simbolo.ABRE_PARENTESE.getLabel()))
+		if(str.trim().equalsIgnoreCase(Simbolo.ABRE_PARENTESE.getLabel()))
 			return Simbolo.ABRE_PARENTESE;
 		
-		if(str.trim().equals(Simbolo.FECHA_PARENTESE.getLabel()))
+		if(str.trim().equalsIgnoreCase(Simbolo.FECHA_PARENTESE.getLabel()))
 			return Simbolo.FECHA_PARENTESE;
 		
 		if(str.matches("^[(*].*.[*)]$"))
@@ -80,79 +80,79 @@ public class IdentificaToken {
 		}
 			
 		
-		if(str.trim().equals(Simbolo.LITERAL.getLabel()))
+		if(str.trim().equalsIgnoreCase(Simbolo.LITERAL.getLabel()))
 			return Simbolo.LITERAL;
 		
-		if(str.trim().equals(Simbolo.PROGRAM.getLabel()))
+		if(str.trim().equalsIgnoreCase(Simbolo.PROGRAM.getLabel()))
 			return Simbolo.PROGRAM;
 		
-		if(str.trim().equals(Simbolo.CONST.getLabel()))
+		if(str.trim().equalsIgnoreCase(Simbolo.CONST.getLabel()))
 			return Simbolo.CONST;
 		
-		if(str.trim().equals(Simbolo.VAR.getLabel()))
+		if(str.trim().equalsIgnoreCase(Simbolo.VAR.getLabel()))
 			return Simbolo.VAR;
 		
-		if(str.trim().equals(Simbolo.PROCEDURE.getLabel()))
+		if(str.trim().equalsIgnoreCase(Simbolo.PROCEDURE.getLabel()))
 			return Simbolo.PROCEDURE;
 		
-		if(str.trim().equals(Simbolo.BEGIN.getLabel()))
+		if(str.trim().equalsIgnoreCase(Simbolo.BEGIN.getLabel()))
 			return Simbolo.BEGIN;
 		
-		if(str.trim().equals(Simbolo.END.getLabel()))
+		if(str.trim().equalsIgnoreCase(Simbolo.END.getLabel()))
 			return Simbolo.END;
 		
-		if(str.trim().equals(Simbolo.INTEGER.getLabel()))
+		if(str.trim().equalsIgnoreCase(Simbolo.INTEGER.getLabel()))
 			return Simbolo.INTEGER;
 		
-		if(str.trim().equals(Simbolo.OF.getLabel()))
+		if(str.trim().equalsIgnoreCase(Simbolo.OF.getLabel()))
 			return Simbolo.OF;
 		
-		if(str.trim().equals(Simbolo.CALL.getLabel()))
+		if(str.trim().equalsIgnoreCase(Simbolo.CALL.getLabel()))
 			return Simbolo.CALL;
 		
-		if(str.trim().equals(Simbolo.IF.getLabel()))
+		if(str.trim().equalsIgnoreCase(Simbolo.IF.getLabel()))
 			return Simbolo.IF;
 		
-		if(str.trim().equals(Simbolo.THEN.getLabel()))
+		if(str.trim().equalsIgnoreCase(Simbolo.THEN.getLabel()))
 			return Simbolo.THEN;
 		
-		if(str.trim().equals(Simbolo.ELSE.getLabel()))
+		if(str.trim().equalsIgnoreCase(Simbolo.ELSE.getLabel()))
 			return Simbolo.ELSE;
 		
-		if(str.trim().equals(Simbolo.WHILE.getLabel()))
+		if(str.trim().equalsIgnoreCase(Simbolo.WHILE.getLabel()))
 			return Simbolo.WHILE;
 		
-		if(str.trim().equals(Simbolo.DO.getLabel()))
+		if(str.trim().equalsIgnoreCase(Simbolo.DO.getLabel()))
 			return Simbolo.DO;
 		
-		if(str.trim().equals(Simbolo.REPEAT.getLabel()))
+		if(str.trim().equalsIgnoreCase(Simbolo.REPEAT.getLabel()))
 			return Simbolo.REPEAT;
 		
-		if(str.trim().equals(Simbolo.UNTIL.getLabel()))
+		if(str.trim().equalsIgnoreCase(Simbolo.UNTIL.getLabel()))
 			return Simbolo.UNTIL;
 		
-		if(str.trim().equals(Simbolo.READLN.getLabel()))
+		if(str.trim().equalsIgnoreCase(Simbolo.READLN.getLabel()))
 			return Simbolo.READLN;
 		
-		if(str.trim().equals(Simbolo.WRITELN.getLabel()))
+		if(str.trim().equalsIgnoreCase(Simbolo.WRITELN.getLabel()))
 			return Simbolo.WRITELN;
 		
-		if(str.trim().equals(Simbolo.OR.getLabel()))
+		if(str.trim().equalsIgnoreCase(Simbolo.OR.getLabel()))
 			return Simbolo.OR;
 		
-		if(str.trim().equals(Simbolo.AND.getLabel()))
+		if(str.trim().equalsIgnoreCase(Simbolo.AND.getLabel()))
 			return Simbolo.AND;
 		
-		if(str.trim().equals(Simbolo.NOT.getLabel()))
+		if(str.trim().equalsIgnoreCase(Simbolo.NOT.getLabel()))
 			return Simbolo.NOT;
 		
-		if(str.trim().equals(Simbolo.FOR.getLabel()))
+		if(str.trim().equalsIgnoreCase(Simbolo.FOR.getLabel()))
 			return Simbolo.FOR;
 		
-		if(str.trim().equals(Simbolo.TO.getLabel()))
+		if(str.trim().equalsIgnoreCase(Simbolo.TO.getLabel()))
 			return Simbolo.TO;
 		
-		if(str.trim().equals(Simbolo.CASE.getLabel()))
+		if(str.trim().equalsIgnoreCase(Simbolo.CASE.getLabel()))
 			return Simbolo.CASE;
 
 		//[\\w]{1,30} = começa com letra e permite no min 1 e max 30

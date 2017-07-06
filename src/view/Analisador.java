@@ -82,7 +82,7 @@ public class Analisador extends Shell {
 		btnNewButton.addSelectionListener(new SelectionAdapter() {
 			@Override
 			public void widgetSelected(SelectionEvent e) {
-				analisar();
+				analisar(text.getText());
 			}
 		});
 		FormData fd_btnNewButton = new FormData();
@@ -117,19 +117,39 @@ public class Analisador extends Shell {
 		createContents();
 	}
 
-	private void analisar(){
+	private void analisar(String textoInput){
 		
-		String condicao = "if a123 = 125 then \n\tC := 30\nelse\n\tC := 40";
+//		String condicao = "if a123 = 125 then (* teste de comentario *) (*outro comentario*) \n\tC := 30\nelse\n\tC := 40";
+		String condicao = textoInput;
+
+		List<String> lista = new ArrayList<String>();
+		List<String> comentarios = new ArrayList<String>();
+		
+		
+		while (condicao.contains("(*") && condicao.contains("*)")){
+			int inicioComentario = condicao.indexOf("(*");
+			int fimComentario = condicao.indexOf("*)")+2;
+			String comentario = condicao.substring(inicioComentario, fimComentario);
+
+			comentarios.add(comentario);
+			condicao = condicao.replace(comentario, "");
+		}
 		
 		String texto = condicao.replace("\n", " ");
 		texto = texto.replace("\t", " ");
 
 		String[] textoQuebrado = texto.split(" ");
+		
 		IdentificaToken identifica = new IdentificaToken();
 		
-		for (String txt : textoQuebrado) {
-			System.out.println(txt + " - " + identifica.identifica(txt));
+		for (String comentario : comentarios)
+			lista.add(comentario + " - " + identifica.identifica(comentario));
 		
+		for (String txt : textoQuebrado)
+			lista.add(txt + " - " + identifica.identifica(txt));
+	
+		for (String string : lista) {
+			System.out.println(string);
 		}
 	}
 	

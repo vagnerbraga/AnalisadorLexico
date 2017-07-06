@@ -158,7 +158,7 @@ public class IdentificaToken {
 		//[\\w]{1,30} = começa com letra e permite no min 1 e max 30
 		//[^\\s] = não pode conter caracter em branco
 		//[\\d]* = verifica se tem a existencia de 0 ou mais caracters 
-		if(str.matches("^[a-zA-Z][^\\s][^\"]$|^[a-zA-Z]+[\\d]*[^\\s][^\"]$")){
+		if(str.matches("^[a-zA-Z]{1}|^[a-zA-Z][^\\s][^\"]$|^[a-zA-Z]+[\\d]*[^\\s][^\"]$")){
 			if(str.length()<30)
 				return Simbolo.IDENTIFICADOR;
 			else

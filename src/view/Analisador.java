@@ -1,7 +1,9 @@
 package view;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.custom.ScrolledComposite;
@@ -16,16 +18,20 @@ import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.swt.widgets.Table;
+import org.eclipse.swt.widgets.TableItem;
 import org.eclipse.swt.widgets.Text;
 
 import principal.IdentificaToken;
 import principal.Simbolo;
+import principal.Token;
 import swing2swt.layout.BorderLayout;
+import org.eclipse.swt.widgets.TableColumn;
 
 public class Analisador extends Shell {
+	
 	private Table table;
 	private Text text;
-
+	
 	/**
 	 * Launch the application.
 	 * @param args
@@ -101,6 +107,18 @@ public class Analisador extends Shell {
 		table.setHeaderVisible(true);
 		table.setLinesVisible(true);
 		
+		TableColumn tblclmnCdigo = new TableColumn(table, SWT.NONE);
+		tblclmnCdigo.setWidth(100);
+		tblclmnCdigo.setText("C\u00F3digo");
+		
+		TableColumn tblclmnToken = new TableColumn(table, SWT.NONE);
+		tblclmnToken.setWidth(100);
+		tblclmnToken.setText("Token");
+		
+		TableColumn tblclmnDescrio = new TableColumn(table, SWT.NONE);
+		tblclmnDescrio.setWidth(100);
+		tblclmnDescrio.setText("Descri\u00E7\u00E3o");
+		
 		ScrolledComposite scrolledComposite = new ScrolledComposite(composite_1, SWT.V_SCROLL);
 		FormData fd_scrolledComposite = new FormData();
 		fd_scrolledComposite.bottom = new FormAttachment(btnNewButton, -6);
@@ -122,9 +140,9 @@ public class Analisador extends Shell {
 //		String condicao = "if a123 = 125 then (* teste de comentario *) (*outro comentario*) \n\tC := 30\nelse\n\tC := 40";
 		String condicao = textoInput;
 
-		List<String> lista = new ArrayList<String>();
 		List<String> comentarios = new ArrayList<String>();
-		
+		List<String> literais = new ArrayList<String>();
+		List<Token> tokens = new ArrayList<Token>();
 		
 		while (condicao.contains("(*") && condicao.contains("*)")){
 			int inicioComentario = condicao.indexOf("(*");
@@ -135,6 +153,15 @@ public class Analisador extends Shell {
 			condicao = condicao.replace(comentario, "");
 		}
 		
+		while (condicao.contains("\" ") && condicao.contains(" \"")){
+			int inicioLiteral = condicao.indexOf("\" ");
+			int fimLiteral = condicao.indexOf(" \"")+2;
+			String literal = condicao.substring(inicioLiteral, fimLiteral);
+
+			literais.add(literal);
+			condicao = condicao.replace(literal, "");
+		}
+		
 		String texto = condicao.replace("\n", " ");
 		texto = texto.replace("\t", " ");
 
@@ -142,14 +169,31 @@ public class Analisador extends Shell {
 		
 		IdentificaToken identifica = new IdentificaToken();
 		
-		for (String comentario : comentarios)
-			lista.add(comentario + " - " + identifica.identifica(comentario));
+		for (String comentario : comentarios){
+			Token token = new Token(comentario, identifica.identifica(comentario));
+			tokens.add(token);
+		}
 		
-		for (String txt : textoQuebrado)
-			lista.add(txt + " - " + identifica.identifica(txt));
+		for (String lit : literais){
+			Token token = new Token(lit, identifica.identifica(lit));
+			tokens.add(token);
+		}
+
+		for (String txt : textoQuebrado){
+			Token token = new Token(txt, identifica.identifica(txt));
+			tokens.add(token);
+		}
+
+		preencheTabela(tokens);
+	}
 	
-		for (String string : lista) {
-			System.out.println(string);
+	private void preencheTabela(List<Token> tokens){
+		this.table.setItemCount(0);
+		this.table.clearAll();
+		
+		for (Token token : tokens) {
+			TableItem it = new TableItem(this.table, SWT.NONE);
+			it.setText(token.toArray());
 		}
 	}
 	
